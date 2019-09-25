@@ -24,28 +24,28 @@ const pixMap = new QPixmap(imageUrl);
 
 - `imageUrl` string (_optional_). Absolute path of the image that needs to be loaded in the memory.
 
-### Static Methods
+## Static Methods
 
 QPixmap can access all the static methods defined in [Component](api/Component.md)
 
-### Instance Properties
+## Instance Properties
 
 QPixmap can access all the instance properties defined in [Component](api/Component.md)
 
-### Instance Methods
+## Instance Methods
 
 QPixmap can access all the instance methods defined in [Component](api/Component.md)
 
 Additionally it also has the following instance methods:
 
-#### `pixMap.load(imageUrl)`
+### `pixMap.load(imageUrl)`
 
 loads an image from the url into memory as a Pixmap.
 returns true if load was successful otherwise returns false.
 
 - `imageUrl` string (_optional_). Absolute path of the image that needs to be loaded in the memory.
 
-#### `pixMap.scaled(width, height, aspectRatioMode?)`
+### `pixMap.scaled(width, height, aspectRatioMode?)`
 
 Scales the pixmap to provided height and width with respect to aspectRatioMode.
 This method doesnt mutate this pixmap and rather returns a new pixmap with new height and width.
