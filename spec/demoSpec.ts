@@ -69,7 +69,7 @@ async function demoTest(visibleFor = 200) {
   expect(lineEdit.placeholderText).toBe("Enter your thoughts here")
   lineEdit.setObjectName("editable");
   expect(lineEdit.objectName()).toBe("editable")
-  
+
   const button = new QPushButton();
   button.setText("Push Push Push!");
   button.setObjectName("btn");
@@ -90,6 +90,7 @@ async function demoTest(visibleFor = 200) {
   tabs.addTab(tab2, icon, "Tab 2");
   const progressbar = new QProgressBar();
   progressbar.setValue(6);
+  expect(progressbar.value()).toEqual(6)
   progressbar.setMinimum(1);
   progressbar.setMaximum(15);
   const radioButton = new QRadioButton();
@@ -118,13 +119,25 @@ async function demoTest(visibleFor = 200) {
       console.error("QPixmap.save test failed", error, error.stack);
       expect(error).toBeUndefined()
     } finally {
-      // unlinkSync(fileName);
+      unlinkSync(fileName);
     }
   }
   testQPixmapSave("tmp.png");
   testQPixmapSave("tmp.jpg");
   testQPixmapSave("tmp_jpg", "JPG");
   testQPixmapSave("tmp_bmp", "BMP");
+
+  // NodeWidget.inherits tests
+  expect(tab1.inherits("QWidget")).toBe(true)
+  expect(tabs.inherits("QTabWidget")).toBe(true)
+  expect(tabs.inherits("QWidget")).toBe(true)
+  expect(tabs.inherits("QObject")).toBe(true)
+  expect(!tabs.inherits("QProgressBar")).toBe(true)
+  expect(progressbar.inherits("QProgressBar")).toBe(true)
+  expect(!progressbar.inherits("QTabWidget")).toBe(true)
+  expect(tabs.inherits("QWidget")).toBe(true)
+  expect(tabs.inherits("QObject")).toBe(true)
+  expect(!tabs.inherits("unknown")).toBe(true)
 
   const trayIcon = new QIcon(resolveOrThrow("extras/assets/nodegui.png"));
   const tray = new QSystemTrayIcon();
@@ -152,10 +165,20 @@ async function demoTest(visibleFor = 200) {
 `);
   win.setWindowIcon(nodeguiLogo);
   await win.setWindowTitle("NodeGUI Demo")
-  win.resize(400, 700);
-  expect(win.size()).toEqual({width: 400, height: 700});
   win.show();
   await win.setWindowState(WindowState.WindowActive);
+  win.resize(400, 700);
+  const originalPos = win.pos();
+  const originalSize = win.size();
+  expect(win.size()).toEqual({ width: 400, height: 700 });
+  win.resize(401, 701);
+  expect(win.size()).toEqual({ width: 401, height: 701 });
+  win.resize(originalSize.width, originalSize.height);
+  expect(win.size()).toEqual(originalSize);
+  win.move({ x: 1, y: 1 });
+  expect(win.pos()).toEqual({ x: 1, y: 1 });
+  win.move(originalPos.x, originalPos.y);
+  expect(win.pos()).toEqual(originalPos);
   // win.close(); // not closing the window - if so the process will be killed
   await sleep(visibleFor);
 }

@@ -20,9 +20,9 @@ import {
   QTextOptionWrapMode,
   QCheckBoxEvents,
   QSystemTrayIcon,
-  ReadWriteImageFormats,
+  ReadWriteImageFormats
 } from "./index";
-import { resolve } from "path"
+import { resolve } from "path";
 
 const win = new QMainWindow();
 
@@ -41,15 +41,15 @@ checkbox.setText("Check me out?");
 checkbox.setObjectName("check");
 checkbox.setChecked(true);
 checkbox.addEventListener(QCheckBoxEvents.toggled, checked => {
-  label1.setInlineStyle(`color: ${checked ? 'green' : 'red'}`);
+  label1.setInlineStyle(`color: ${checked ? "green" : "red"}`);
   // Let's load an image file using QPixmap and then save it back to a file encoded in one of the supported formats.
-  // Note that although relative paths are supported, desktop applications are invoked form arbitrary working directories 
+  // Note that although relative paths are supported, desktop applications are invoked form arbitrary working directories
   // so is safer to reference files relative to known locations, in this case using __dirname which is this file's directory (dist/src).
   const pixmap = new QPixmap(resolve(__dirname, "../extras/assets/kitchen.png"));
-  const someFormats: ReadWriteImageFormats[] = ['BMP', 'JPG', 'PNG'];
+  const someFormats: ReadWriteImageFormats[] = ["BMP", "JPG", "PNG"];
   const randomFormat = someFormats[Math.trunc(Math.random() * 3 - 0.1)];
-  const imageFile =  `tmpSavedImage.${randomFormat.toLowerCase()}`;
-  if (pixmap.save(imageFile,randomFormat)) {
+  const imageFile = `tmpSavedImage.${randomFormat.toLowerCase()}`;
+  if (pixmap.save(imageFile, randomFormat)) {
     textEdit.setPlainText(`A new image was saved at \n"${imageFile}" !`);
   } else {
     textEdit.setPlainText(`An error just occurred trying to save an image at \n"${imageFile}" !`);
@@ -89,7 +89,6 @@ tabs.addTab(tab2, icon, "Tab 2");
 
 const progressBar = new QProgressBar();
 progressBar.setValue(6);
-equal(progressBar.value(), 6);
 progressBar.setMinimum(1);
 progressBar.setMaximum(15);
 
@@ -106,26 +105,12 @@ textEdit.setWordWrapMode(QTextOptionWrapMode.NoWrap);
 const scrollArea = new QScrollArea();
 scrollArea.setInlineStyle("flex: 1; width:'100%';");
 
-// NodeWidget.inherits tests
-ok(tab1.inherits("QWidget"));
-ok(tabs.inherits("QTabWidget"));
-ok(tabs.inherits("QWidget"));
-ok(tabs.inherits("QObject"));
-ok(!tabs.inherits("QProgressBar"));
-ok(progressBar.inherits("QProgressBar"));
-ok(!progressBar.inherits("QTabWidget"));
-ok(tabs.inherits("QWidget"));
-ok(tabs.inherits("QObject"));
-ok(!tabs.inherits("unknown"));
-
 const imageLabel = new QLabel();
 const pixmap = new QPixmap(resolve(__dirname, "../extras/assets/kitchen.png"));
 imageLabel.setPixmap(pixmap);
 scrollArea.setWidget(imageLabel);
 
-const trayIcon = new QIcon(
-  resolve(__dirname, "../extras/assets/nodegui_white.png")
-);
+const trayIcon = new QIcon(resolve(__dirname, "../extras/assets/nodegui_white.png"));
 const tray = new QSystemTrayIcon();
 tray.setIcon(trayIcon);
 tray.show();
@@ -157,17 +142,6 @@ if (rootView.layout) {
   win.resize(400, 700);
   win.show();
   await win.setWindowState(WindowState.WindowActive);
-  // test size() , resize(), pos() and move()
-  const originalPos = win.pos();
-  const originalSize = win.size();
-  win.resize({ width: 401, height: 701 });
-  deepEqual(win.size(), { width: 401, height: 701 });
-  win.resize(originalSize.width, originalSize.height);
-  deepEqual(win.size(), originalSize);
-  win.move({ x: 1, y: 1 });
-  deepEqual(win.pos(), { x: 1, y: 1 });
-  win.move(originalPos.x, originalPos.y);
-  deepEqual(win.pos(), originalPos);
 })();
 
 (global as any).win = win; // To prevent win from being garbage collected.
