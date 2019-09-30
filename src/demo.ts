@@ -25,8 +25,7 @@ import {
 } from "./index";
 import { ok, equal, deepEqual } from "assert";
 import { existsSync, unlinkSync, readFileSync } from "fs";
-import { resolve } from "path"
-
+import { resolve } from "path";
 
 const win = new QMainWindow();
 
@@ -45,8 +44,8 @@ checkbox.setText("Check me out?");
 checkbox.setObjectName("check");
 checkbox.setChecked(true);
 checkbox.addEventListener(QCheckBoxEvents.toggled, checked => {
-  console.log(`${checked ? 'checked' : 'unchecked'}`);
-  label1.setInlineStyle(`color: ${checked ? 'green' : 'red'}`);
+  console.log(`${checked ? "checked" : "unchecked"}`);
+  label1.setInlineStyle(`color: ${checked ? "green" : "red"}`);
 });
 
 const dial = new QDial();
@@ -60,13 +59,9 @@ const button = new QPushButton();
 button.setText("Push Push Push!");
 button.setObjectName("btn");
 
-const nodeguiLogo = new QIcon(
-  resolve(__dirname, "../extras/assets/nodegui.png")
-);
+const nodeguiLogo = new QIcon(resolve(__dirname, "../extras/assets/nodegui.png"));
 
-const icon = new QIcon(
-  resolve(__dirname, "../extras/assets/start_icon.png")
-);
+const icon = new QIcon(resolve(__dirname, "../extras/assets/start_icon.png"));
 button.setIcon(icon);
 
 const tabs = new QTabWidget();
@@ -117,9 +112,7 @@ ok(tabs.inherits("QObject"))
 ok(!tabs.inherits("unknown"))
 
 const imageLabel = new QLabel();
-const pixmap = new QPixmap(
-  resolve(__dirname, "../extras/assets/kitchen.png")
-);
+const pixmap = new QPixmap(resolve(__dirname, "../extras/assets/kitchen.png"));
 imageLabel.setPixmap(pixmap);
 scrollArea.setWidget(imageLabel);
 
@@ -142,12 +135,10 @@ testQPixmapSave("tmp.jpg");
 testQPixmapSave("tmp_jpg", "JPG");
 testQPixmapSave("tmp_bmp", "BMP");
 
-const trayIcon = new QIcon(
-  resolve(__dirname, "../extras/assets/nodegui_white.png")
-);
+const trayIcon = new QIcon(resolve(__dirname, "../extras/assets/nodegui_white.png"));
 const tray = new QSystemTrayIcon();
 tray.setIcon(trayIcon);
-tray.show()
+tray.show();
 
 if (rootView.layout) {
   rootView.layout.addWidget(tabs);
