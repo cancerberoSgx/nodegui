@@ -81,7 +81,7 @@ tabs.addTab(tab2, icon, "Tab 2");
 
 const progressBar = new QProgressBar();
 progressBar.setValue(6);
-equal(progressBar.value(), 6)
+equal(progressBar.value(), 6);
 progressBar.setMinimum(1);
 progressBar.setMaximum(15);
 
@@ -100,16 +100,16 @@ const scrollArea = new QScrollArea();
 scrollArea.setInlineStyle("flex: 1; width:'100%';");
 
 // NodeWidget.inherits tests
-ok(tab1.inherits("QWidget"))
-ok(tabs.inherits("QTabWidget"))
-ok(tabs.inherits("QWidget"))
-ok(tabs.inherits("QObject"))
-ok(!tabs.inherits("QProgressBar"))
-ok(progressBar.inherits("QProgressBar"))
-ok(!progressBar.inherits("QTabWidget"))
-ok(tabs.inherits("QWidget"))
-ok(tabs.inherits("QObject"))
-ok(!tabs.inherits("unknown"))
+ok(tab1.inherits("QWidget"));
+ok(tabs.inherits("QTabWidget"));
+ok(tabs.inherits("QWidget"));
+ok(tabs.inherits("QObject"));
+ok(!tabs.inherits("QProgressBar"));
+ok(progressBar.inherits("QProgressBar"));
+ok(!progressBar.inherits("QTabWidget"));
+ok(tabs.inherits("QWidget"));
+ok(tabs.inherits("QObject"));
+ok(!tabs.inherits("unknown"));
 
 const imageLabel = new QLabel();
 const pixmap = new QPixmap(resolve(__dirname, "../extras/assets/kitchen.png"));

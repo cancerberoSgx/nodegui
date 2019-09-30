@@ -72,9 +72,9 @@ export abstract class NodeWidget extends EventWidget {
     // react:✓, //TODO:getter
     return this.native.setWindowTitle(title);
   };
-  inherits(className: string) { 
+  inherits(className: string) {
     return this.native.inherits(className);
-  };
+  }
   setWindowState = async (state: WindowState) => {
     // react:✓, //TODO:getter
     return this.native.setWindowState(state);
@@ -99,8 +99,8 @@ export abstract class NodeWidget extends EventWidget {
     // react:✓
     this.native.setFixedSize(width, height);
   };
-  resize(size: Size): void
-  resize(width: number, height: number): void
+  resize(size: Size): void;
+  resize(width: number, height: number): void;
   resize(widthOrSize: number | Size, height?: number) {
     // react:✓
     if (typeof widthOrSize === "number") {
@@ -108,13 +108,13 @@ export abstract class NodeWidget extends EventWidget {
     } else {
       this.native.resize(widthOrSize.width, widthOrSize.height);
     }
-  };
+  }
   size(): Size {
     // react:✓
     return this.native.size();
-  };
-  move(pos: Point): void
-  move(x: number, y: number): void
+  }
+  move(pos: Point): void;
+  move(x: number, y: number): void;
   move(xOrPoint: number | Point, y?: number) {
     // react:✓
     if (typeof xOrPoint === "number") {
@@ -122,11 +122,11 @@ export abstract class NodeWidget extends EventWidget {
     } else {
       this.native.move(xOrPoint.x, xOrPoint.y);
     }
-  };
+  }
   pos(): Point {
     // react:✓
     return this.native.pos();
-  };
+  }
   repaint = () => {
     // react:⛔️
     this.native.repaint();
@@ -173,9 +173,7 @@ interface Point {
   y: number;
 }
 
-interface Rect extends Point, Size {
-
-};
+interface Rect extends Point, Size {}
 
 type arg = NodeWidget | NativeElement;
 
