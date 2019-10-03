@@ -61,10 +61,50 @@ $ npm start
 
 [quick-start]: https://github.com/nodegui/nodegui-starter
 
+## TypeScript project from scratch
+
+The following commands will create a Node.js project with a small nodegui program, install minimal dependencies and show how to run it.
+
+```sh
+mkdir app1
+cd app1
+npm init -y
+npm install @nodegui/nodegui
+npm install -D typescript
+
+# Now let's create a small TypeScript nodegui application:
+echo '
+import { QMainWindow, QPushButton } from "@nodegui/nodegui";
+const win = (global as any).win = new QMainWindow();
+const button = new QPushButton(win);
+button.setText("Click me");
+button.addEventListener("clicked", () => button.setText("Clicked"));
+win.show();
+' > app1.ts
+
+# Let's compile it to JavaScript (app1.js)
+npx tsc app1.ts
+
+# Execute it using qode that is already installed locally with @nodegui/nodegui
+npx qode app1.js
+```
+
+Tip: Using `ts-node` to execute TypeScript directly (which often gives better exception stack traces when developing):
+
+```sh
+npm install -D ts-node
+npx qode node_modules/ts-node/dist/bin app1.ts
+```
+
+IMPORTANT: Notice that we didn't even initialized a TypeScript project configuration `tsconfig.json` not put much attention on the program correctness, the objective was to summary steps for setting up, and run a minimal application.
+
 ## What else other than a basic window?
 
 NodeGui has support for basic widgets like QWidget (similar to div), QCheckBox, QPushButton and many more.
-You can take a look at the list of native widgets that NodeGui currently supports here : [Native widgets in NodeGui](/docs/api/QWidget).
+You can take a look at the list of native widgets that NodeGui currently supports here : [Native widgets in NodeGui](/docs/api/QWidget). 
+
+Also take a look at the [demo.ts](https://github.com/nodegui/nodegui/blob/master/src/demo.ts) which is a working program showing how to use several of the supported components. 
+
 With time more widgets and APIs will be added to NodeGui. Apart from modules in NodeGui, you also have access to the entire node modules ecosystem. Thus, any node module that you can use with Node.js, can be used with NodeGui. This makes it extremely powerful.
 
 Fine, I want something more custom and beautiful than just native looking widgets. What do I do?

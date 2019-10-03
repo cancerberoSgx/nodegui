@@ -5,7 +5,7 @@ title: Images
 
 ## Reading, showing and writing images example
 
-The following example loads an image from file using [QPixmap](https://docs.nodegui.org/docs/api/QPixmap), shows it in a [QLabel](https://docs.nodegui.org/docs/api/QLabel) and finally saves it back to a file when the user clicks a button. 
+The following example loads an image from file using [QPixmap](../../api/QPixmap), shows it in a [QLabel](../../api/QLabel) and finally saves it back to a file when the user clicks a button. 
 
 ```js
 import { resolve } from "path";
@@ -44,4 +44,4 @@ Although relative urls are supported, it's recommended to reference files absolu
 
 ## Image formats
 
-Supported image formats are listed in [Pixmap Reference](https://doc.qt.io/qt-5/qpixmap.html#reading-and-writing-image-files). 
+Supported image formats are listed in [Qt's Pixmap Reference](https://doc.qt.io/qt-5/qpixmap.html#reading-and-writing-image-files) and can be imported using from [QPixmap](http://localhost:3000/docs/api/QPixmap#readwriteimageformats) module.

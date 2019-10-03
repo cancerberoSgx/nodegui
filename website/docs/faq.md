@@ -20,7 +20,7 @@ if installing via `npm` is failing.
 
 ## Javascript widgets are missing methods and properties as compared to QT widget?
 
-As you would have noticed, the list of methods and properties are less compared to what is present in the Qt's corresponding widget class. This is because we havent written wrappers for them yet. You can help add more methods by following the development guide for contributors. Overtime this gap would reduce.
+As you would have noticed, the list of methods and properties are less compared to what is present in the Qt's corresponding widget class. This is because we haven't written wrappers for them yet. You can help add more methods by following the development guide for contributors. Overtime this gap would reduce.
 
 ## When will Qode upgrade to latest Node.js / Qt version?
 
