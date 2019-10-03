@@ -64,3 +64,23 @@ This method doesnt mutate this pixmap and rather returns a new pixmap with new h
 - `width` number. Width in pixels for new pixmap.
 - `height` number. Height in pixels for new pixmap.
 - `aspectRatioMode` AspectRatioMode (_optional_). Specifies how scaling should happen. [AspectRatio is an enum from Qt](api/QtEnums.md)
+
+
+## Public Types
+
+### `ImageFormats`
+
+A type union with all image formats known by Qt:
+
+```ts
+type ImageFormats = 'BMP' | 'GIF' | 'JPG' | 'JPEG' | 'PNG' | 'PBM' | 'PGM' | 'PPM' | 'XBM' | 'XPM'
+```
+
+### `ReadWriteImageFormats` 
+
+A type union with image formats for which Qt support both read and write operations:
+
+```ts
+type ReadWriteImageFormats = 'BMP' | 'JPG' | 'JPEG' | 'PNG' | 'PBM' | 'XBM' | 'XPM'
+```
+

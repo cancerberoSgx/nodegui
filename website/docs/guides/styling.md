@@ -66,7 +66,7 @@ view.show();
 
 ```
 
-In the case of global stylesheet you can define all your style properties in a stylesheet string and the tell the root view or window to set it as a stylsheet for it and its child widgets. The only difference here from web is that you can set a stylesheet on a widget at any level in the whole tree of widgets, the stylesheet will affect the widget and its children.
+In the case of global stylesheet you can define all your style properties in a stylesheet string and the tell the root view or window to set it as a stylesheet for it and its child widgets. The only difference here from web is that you can set a stylesheet on a widget at any level in the whole tree of widgets, the stylesheet will affect the widget and its children.
 
 In the above example, in order to reference a widget in a stylesheet we will assign it a `objectName` using setObjectName instance method. Think of objectName as something similar to an `id` in the case of web. Now using the objectName you could reference the widget in the stylesheet and set style properties on them. Do not worry about the layout stuff that is going on here, that will be covered in the next section.
 
@@ -136,7 +136,7 @@ Style sheets can be set on the parent widgets and on child widgets. An arbitrary
 
 When conflicts arise, the widget's own inline style sheet is always preferred to any inherited style sheet, irrespective of the specificity of the conflicting rules. Likewise, the parent widget's style sheet is preferred to the grandparent's, etc.
 
-The behaviour is similar to what we see on the web.
+The behavior is similar to what we see on the web.
 
 > For more in depth examples see here: https://doc.qt.io/qt-5/stylesheet-syntax.html#cascading
 
@@ -156,8 +156,8 @@ const textStyle = `
 ```
 
 Here if you look carefully, you would notice that there are some differences in the way we write style properties as compared to web.
-The quotes you see around `'green'` and `'100%'` are necessary so that Qt doesnt interpret them as numbers.
-So the rule of thumb is that any integer based property like margin, border, etc can be written without quotes while any string property, it is better to surround them with quotes. PS: Qt does recognise some string based properties without quotes also.
+The quotes you see around `'green'` and `'100%'` are necessary so that Qt doesn't interpret them as numbers.
+So the rule of thumb is that any integer based property like margin, border, etc can be written without quotes while any string property, it is better to surround them with quotes. PS: Qt does recognize some string based properties without quotes also.
 
 ## Supported properties
 
@@ -165,11 +165,11 @@ Since we are not running inside a web browser, there are few differences in the 
 
 The complete list is detailed here: https://doc.qt.io/qt-5/stylesheet-reference.html#list-of-properties
 
-Apart from the properties listed in the link, NodeGui also supports layout properties related to Flex. You can use all flex properties such as align-items, justify-content, flex, etc on all widgets. [The layout styling will be coverted in more detail in the section: Layout.](layout.md)
+Apart from the properties listed in the link, NodeGui also supports layout properties related to Flex. You can use all flex properties such as align-items, justify-content, flex, etc on all widgets. [The layout styling will be covered in more detail in the section: Layout.](layout.md)
 
 ## Advanced usage (Setting QObject Properties)
 
-In Qt, every widget has certain properties set on them using something called as [Q_PROPERTY](https://doc.qt.io/qt-5/qobject.html#Q_PROPERTY). There are many q-properties that are defined on each widget already. You can also define custom qproperties in the native C++ code yourself too. What does it have to do with styling ? The thing is some of these properties can be altered using qt stylesheet. In Qt's terminology, these properties are called designable properties.
+In Qt, every widget has certain properties set on them using something called as [Q_PROPERTY](https://doc.qt.io/qt-5/qobject.html#Q_PROPERTY). There are many q-properties that are defined on each widget already. You can also define custom q-properties in the native C++ code yourself too. What does it have to do with styling ? The thing is some of these properties can be altered using qt stylesheet. In Qt's terminology, these properties are called designable properties.
 
 For example:
 

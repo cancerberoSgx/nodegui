@@ -27,7 +27,6 @@ import { ok, equal } from "assert";
 import { existsSync, unlinkSync, readFileSync } from "fs";
 import { resolve } from "path"
 
-
 const win = new QMainWindow();
 
 const label1 = new QLabel();

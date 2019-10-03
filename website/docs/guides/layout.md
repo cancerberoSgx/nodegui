@@ -32,7 +32,7 @@ NodeGui currently supports the following layouts at the moment:
 - FlexLayout
 - QGridLayout
 
-_More layouts will be added as time goes on. You can also add layouts yourself by creating custom native plugins for NodeGui usng the [Custom Native Plugin API.](custom-nodegui-native-plugin.md)_
+_More layouts will be added as time goes on. You can also add layouts yourself by creating custom native plugins for NodeGui using the [Custom Native Plugin API.](custom-nodegui-native-plugin.md)_
 
 ## FlexLayout
 
@@ -109,4 +109,4 @@ global.win = win;
 
 The primary layout in NodeGui is the Flexbox layout. Flexbox layout can be controlled via stylesheet just as in web. So both paint and layout properties are available at the same place.
 
-NodeGui will also try to support other available layouts in Qt. But, If you need a special layout that Qt/NodeGui doesnt yet support you can always create a [native plugin for NodeGui](custom-nodegui-native-plugin.md) and use Qt's APIs to create one. In fact, Qt doesnt have a FlexLayout built in, FlexLayout is actually a custom Qt layout written with the help of Yoga library.
+NodeGui will also try to support other available layouts in Qt. But, If you need a special layout that Qt/NodeGui doesn't yet support you can always create a [native plugin for NodeGui](custom-nodegui-native-plugin.md) and use Qt's APIs to create one. In fact, Qt doesn't have a FlexLayout built in, FlexLayout is actually a custom Qt layout written with the help of Yoga library.
